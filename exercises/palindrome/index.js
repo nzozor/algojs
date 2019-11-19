@@ -7,6 +7,19 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+    // use of every is not optimal here because we are doing some unecessary checking
+    // when we arrive to the middle of the array we already can know if str is a palindrome
+    return str.split('').every((char,index) =>  char === str[str.length - 1 - index]);
+}
 
+// function palindromeMe(str) {
+//     return str === reverseStr(str);
+// }
+
+// function reverseStr(str) {
+//     return str.split('').reduce((result, item) => item + result, '');
+// }
+
+// console.log(reverseStr('abcd'));
 module.exports = palindrome;
