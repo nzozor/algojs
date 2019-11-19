@@ -32,8 +32,8 @@ function reverse(str) {
 }
 
 console.log(reverse("abcd"));
-console.log(reverse2("abcd"));
-console.log(reverse3("abcd"));
+// console.log(reverse2("abcd"));
+// console.log(reverse3("abcd"));
 
 
 module.exports = reverse;
