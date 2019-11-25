@@ -31,7 +31,7 @@ module.exports = chunk;
 //     if (!last || last.length === size) {
 //       chunked.push([element]);
 //     } else {
-//       last.push(element);
+//       last.push(element);  
 //     }
 //   }
 //
