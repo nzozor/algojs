@@ -17,7 +17,24 @@
 //       '### '
 //       '####'
 
-function steps(n) {
+function steps(n, row = 0) {
+    if (n === row ) {
+        return;
+    }
+
+    let step = '';
+    for(let i = 0; i < n; i++) {
+        if (i <= row) {
+            step += '#';
+        } else {
+            step += ' ';
+        }
+    }
+    console.log(step);
+    steps(n, row + 1);
+
+}
+function steps2(n) {
     for(let i = 0; i < n; i++) {
         let step = '';
         for(let j = 0; j < n; j++) {

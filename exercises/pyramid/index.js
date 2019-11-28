@@ -14,6 +14,34 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+//   pyramid(4)
+//       '   #   '
+//       '  ###  '
+//       ' ##### '
+//       '#######'
 
+''
+function pyramid(n) {
+    let colNumber = 1;
+    for (let i = 1; i < n; i++) {
+        colNumber +=2;
+    }
+
+    const middleIndex = Math.floor(colNumber / 2);
+
+
+    for (let i = 0; i < n; i++) {
+        let row = '';
+        
+        for (let j = 0; j < colNumber; j++) {
+            if (j >= middleIndex - i && j <= middleIndex + i) {
+                row += '#';
+            } else {
+                row += ' ';
+            }
+        }
+        console.log(row);
+    }
+}
+pyramid(4);
 module.exports = pyramid;
