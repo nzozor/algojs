@@ -20,8 +20,24 @@
 //       ' ##### '
 //       '#######'
 
-''
-function pyramid(n) {
+function pyramid(n, row = 0) {
+    if(row === n) {
+        return;
+    }
+    const middleIndex = Math.floor((n * 2 -1) / 2);
+    let rowlog = '';
+    for (let i = 0; i < n * 2 -1; i++) {
+        if (i >= middleIndex - row && i <= middleIndex + row) {
+            rowlog += '#';
+        } else {
+            rowlog += ' ';
+        }
+    }
+    console.log(rowlog);
+    pyramid(n, row + 1);
+}
+
+function pyramid2(n) {
     let colNumber = 1;
     for (let i = 1; i < n; i++) {
         colNumber +=2;
