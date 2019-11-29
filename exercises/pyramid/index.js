@@ -20,7 +20,7 @@
 //       ' ##### '
 //       '#######'
 
-function pyramid(n, row = 0) {
+function pyramid3(n, row = 0) {
     if(row === n) {
         return;
     }
