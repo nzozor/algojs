@@ -8,6 +8,28 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function memoized(fn) {
+    const hash = [];
+    return function(...args) {
+        if(hash[args[0]])
+    } 
+}
+function fib(n) {
+    if (n < 2) {
+        return 1;
+    }
+    return fib2(n - 1) + fib2(n - 2);
+}
+
+console.log(fib(4));
+
+function fib2(n) {
+    const fibArray = [0, 1];
+    for (let i = 2; i <= n; i++) {
+        fibArray.push(fibArray[i -1] + fibArray[i -2]);
+    }
+    return fibArray[n];
+}
+// console.log(fib(3));
 
 module.exports = fib;

@@ -20,6 +20,9 @@
 //       ' ##### '
 //       '#######'
 
+function pyramid4(n, row=0, sequence = '') {
+
+}
 function pyramid3(n, row = 0) {
     if(row === n) {
         return;
