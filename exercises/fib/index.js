@@ -9,27 +9,35 @@
 //   fib(4) === 3
 
 function memoized(fn) {
-    const hash = [];
+    const hash = {};
     return function(...args) {
-        if(hash[args[0]])
+        if(hash[args]) {
+            return hash[args];
+        } 
+        const result = fn.apply(this,args);
+        hash[args] = result;
+        return result;
     } 
 }
-function fib(n) {
+
+const mem = memoized(slowfib);
+
+function slowfib(n) {
     if (n < 2) {
-        return 1;
+        return n;
     }
-    return fib2(n - 1) + fib2(n - 2);
+    return mem(n - 1) + mem(n - 2);
 }
 
-console.log(fib(4));
+// console.log(mem(40));
 
-function fib2(n) {
-    const fibArray = [0, 1];
-    for (let i = 2; i <= n; i++) {
-        fibArray.push(fibArray[i -1] + fibArray[i -2]);
-    }
-    return fibArray[n];
-}
+// function fib2(n) {
+//     const fibArray = [0, 1];
+//     for (let i = 2; i <= n; i++) {
+//         fibArray.push(fibArray[i -1] + fibArray[i -2]);
+//     }
+//     return fibArray[n];
+// }
 // console.log(fib(3));
 
-module.exports = fib;
+module.exports = mem;

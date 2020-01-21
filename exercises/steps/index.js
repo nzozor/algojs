@@ -17,36 +17,55 @@
 //       '### '
 //       '####'
 
-function steps(n, row = 0) {
-    if (n === row ) {
+function steps(n = 1, rowNum = 1, data = '') {
+    if (rowNum > n ) {
         return;
     }
-
-    let step = '';
-    for(let i = 0; i < n; i++) {
-        if (i <= row) {
-            step += '#';
+    
+    if (data.length < n) {
+        if (data.length < rowNum) {
+            data += '#';
         } else {
-            step += ' ';
+            data += ' ';
         }
-    }
-    console.log(step);
-    steps(n, row + 1);
-
-}
-function steps2(n) {
-    for(let i = 0; i < n; i++) {
-        let step = '';
-        for(let j = 0; j < n; j++) {
-            if(j <= i) {
-                step += '#'; 
-            } else {
-                step +=' ';
-            }
-        }
-        console.log(step);
+        return steps(n, rowNum, data);
+    } else {
+        console.log(data);
+        return steps(n, rowNum + 1, '');
     }
 }
+// steps(1);
+// module.exports = steps;
+// function steps(n, row = 0) {
+//     if (n === row ) {
+//         return;
+//     }
 
-steps(4);
+//     let step = '';
+//     for(let i = 0; i < n; i++) {
+//         if (i <= row) {
+//             step += '#';
+//         } else {
+//             step += ' ';
+//         }
+//     }
+//     console.log(step);
+//     steps(n, row + 1);
+
+// }
+// function steps2(n) {
+//     for(let i = 0; i < n; i++) {
+//         let step = '';
+//         for(let j = 0; j < n; j++) {
+//             if(j <= i) {
+//                 step += '#'; 
+//             } else {
+//                 step +=' ';
+//             }
+//         }
+//         console.log(step);
+//     }
+// }
+
+steps(6);
 module.exports = steps;

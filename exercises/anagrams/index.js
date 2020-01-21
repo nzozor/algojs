@@ -7,13 +7,13 @@
 //   anagrams('rail safety', 'fairy tales') --> True
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
-function anagrams(stringA, stringB) {
-    let cleanStringA = cleanString(stringA);
-    let cleanStringB = cleanString(stringB);
-    return cleanStringA.split('').sort().join('') === cleanStringB.split('').sort().join('');
-}
+// function anagrams(stringA, stringB) {
+//     let cleanStringA = cleanString(stringA);
+//     let cleanStringB = cleanString(stringB);
+//     return cleanStringA.split('').sort().join('') === cleanStringB.split('').sort().join('');
+// }
 
-function anagrams2(stringA, stringB) {
+function anagrams(stringA, stringB) {
     let cleanStringA = cleanString(stringA);
     let cleanStringB = cleanString(stringB);
 
@@ -28,8 +28,8 @@ function anagrams2(stringA, stringB) {
         if (v !== stringBhash[k]) {
             return false;
         }
-    return true;
     }
+    return true;
 }
 
 function getStringHash(string) {
@@ -51,6 +51,6 @@ function cleanString(string) {
 console.log(cleanString('One one'));
 console.log(cleanString('One one c'));
 
-console.log(anagrams('rail safety', 'fairy tales'));
+console.log(anagrams('rail safety dodo', 'dfairy odotales'));
 console.log(anagrams('One one', 'One one c'));
 module.exports = anagrams;

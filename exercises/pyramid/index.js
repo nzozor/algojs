@@ -17,49 +17,26 @@
 //   pyramid(4)
 //       '   #   '
 //       '  ###  '
-//       ' ##### '
+//       ' ##### ' 
 //       '#######'
 
-function pyramid4(n, row=0, sequence = '') {
-
-}
-function pyramid3(n, row = 0) {
-    if(row === n) {
+function pyramid(n, row = 0, sequence = '') {
+    if (row >= n) {
         return;
     }
-    const middleIndex = Math.floor((n * 2 -1) / 2);
-    let rowlog = '';
-    for (let i = 0; i < n * 2 -1; i++) {
-        if (i >= middleIndex - row && i <= middleIndex + row) {
-            rowlog += '#';
+    const maxLengthLine = n * 2 - 1;
+    const midPoint = Math.floor(maxLengthLine / 2);
+
+    if (sequence.length < maxLengthLine) {
+        if (sequence.length < midPoint - row || sequence.length > midPoint + row) {
+            sequence += ' ';
         } else {
-            rowlog += ' ';
+            sequence += '#';
         }
-    }
-    console.log(rowlog);
-    pyramid(n, row + 1);
-}
-
-function pyramid2(n) {
-    let colNumber = 1;
-    for (let i = 1; i < n; i++) {
-        colNumber +=2;
-    }
-
-    const middleIndex = Math.floor(colNumber / 2);
-
-
-    for (let i = 0; i < n; i++) {
-        let row = '';
-        
-        for (let j = 0; j < colNumber; j++) {
-            if (j >= middleIndex - i && j <= middleIndex + i) {
-                row += '#';
-            } else {
-                row += ' ';
-            }
-        }
-        console.log(row);
+        return pyramid(n, row, sequence);
+    } else {
+        console.log(sequence);
+        return pyramid(n, row + 1, sequence = '');
     }
 }
 pyramid(4);
